@@ -337,6 +337,23 @@
     }
     .tip-box p { color: #93c5fd; font-size: .9rem; }
 
+    /* ─── Resource link box inside how-to-use ─── */
+    .resource-link-box {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 16px 22px;
+      margin-top: 20px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .resource-link-box p { color: #94a3b8; font-size: .88rem; }
+    .resource-link-box a { color: #60a5fa; text-decoration: underline; text-underline-offset: 3px; }
+
     /* ─── COMPARISON ─── */
     #comparison { background: var(--gray-100); }
     .table-wrap { margin-top: 48px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
@@ -398,7 +415,7 @@
       background: var(--white);
     }
     .faq-a-inner { padding: 0 24px 20px; color: var(--gray-500); font-size: .92rem; }
-    .faq-item.open .faq-a { max-height: 260px; }
+    .faq-item.open .faq-a { max-height: 320px; }
 
     /* ─── FINAL CTA ─── */
     #cta {
@@ -696,6 +713,19 @@
       <p><strong style="color:#e2e8f0;">Pro Tip:</strong> Do not use headphones or earbuds during the process. The vibration is designed for your external speaker only. Remove any phone case for better results.</p>
     </div>
 
+    <!-- ── NATURAL GOOGLE DOCS LINK — placement 1 ── -->
+    <div class="resource-link-box" aria-label="Additional resource">
+      <span style="font-size:1.2rem;flex-shrink:0;">📄</span>
+      <p>
+        Want a more detailed written guide?
+        Read the full
+        <a href="https://docs.google.com/document/d/1YASgRkxuRV5WnVylDWYFT--PGg05NFxeUqIykgalnMs/edit?usp=sharing" target="_blank" rel="noopener">
+          step-by-step phone speaker cleaning guide
+        </a>
+        — covering mistakes to avoid, alternative methods, and when to seek professional help.
+      </p>
+    </div>
+
     <div style="text-align:center;margin-top:48px;">
       <a href="http://fixmyspeakercleaner.com/" class="btn-primary" rel="noopener">🔊 Start Cleaning Now — It's Free</a>
     </div>
@@ -808,7 +838,17 @@
             <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
           </span>
         </div>
-        <div class="faq-a"><div class="faq-a-inner">First, make sure your volume is at maximum and run 2–3 more cycles. If the issue persists, internal water damage may have reached components beyond the speaker grille, and professional service may be the right next step. The tool is highly effective for grille-level blockage but cannot repair internal hardware damage.</div></div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            First, make sure your volume is at maximum and run 2–3 more cycles. If the issue persists, internal water damage may have reached components beyond the speaker grille, and professional service may be the right next step. The tool is highly effective for grille-level blockage but cannot repair internal hardware damage.
+            <!-- ── NATURAL GOOGLE DOCS LINK — placement 2 ── -->
+            <br /><br />
+            For a full troubleshooting walkthrough — including alternative cleaning methods and signs you need professional repair — see this
+            <a href="https://docs.google.com/document/d/1YASgRkxuRV5WnVylDWYFT--PGg05NFxeUqIykgalnMs/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--blue-start);text-decoration:underline;text-underline-offset:3px;">
+              detailed speaker repair guide
+            </a>.
+          </div>
+        </div>
       </div>
 
       <div class="faq-item" role="listitem">
