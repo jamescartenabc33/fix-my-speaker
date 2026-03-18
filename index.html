@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix My Speaker — Free Online Speaker Cleaner & Water Ejection Tool</title>
+  <meta name="description" content="Remove water and dust from your phone speaker instantly using sound frequencies. No app needed. Fix My Speaker is a free browser-based speaker cleaner tool." />
+  <meta name="keywords" content="fix my speaker, speaker cleaner sound, remove water from phone speaker, phone speaker cleaning tool, sound to eject water, clean phone speaker online" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="http://fixmyspeakercleaner.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fix My Speaker — Free Speaker Cleaner & Water Ejection Tool" />
+  <meta property="og:description" content="Use sound frequencies to remove water and dust from your phone speaker. Free, instant, no download required." />
+  <meta property="og:url" content="http://fixmyspeakercleaner.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-start: #2563eb;
+      --blue-end: #1e40af;
+      --blue-light: #eff6ff;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+      --gray-100: #f8fafc;
+      --gray-200: #e2e8f0;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --white: #ffffff;
+      --radius: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 24px rgba(37,99,235,.10), 0 1px 4px rgba(0,0,0,.06);
+      --shadow-lg: 0 12px 40px rgba(37,99,235,.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.2; }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue-start), var(--blue-end));
+      color: #fff; font-weight: 500; font-size: .875rem;
+      padding: 9px 22px; border-radius: 50px;
+      transition: opacity .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--blue-start), var(--blue-end));
+      color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1.05rem; padding: 16px 36px; border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(37,99,235,.35);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,99,235,.40); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid rgba(255,255,255,.5); color: #fff;
+      font-family: 'Syne', sans-serif; font-weight: 600;
+      font-size: .95rem; padding: 13px 28px; border-radius: 50px;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 96px 24px; }
+    .section-sm { padding: 72px 24px; }
+    .container { max-width: 1120px; margin: auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--blue-light); color: var(--blue-start);
+      font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 16px; }
+    .section-sub { font-size: 1.05rem; color: var(--gray-500); max-width: 580px; }
+
+    /* ─── HERO ─── */
+    #hero {
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 60%, #1e40af 100%);
+      padding: 100px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(37,99,235,.4) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* subtle animated rings */
+    .hero-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.07);
+      animation: expand 6s ease-out infinite;
+    }
+    .hero-ring:nth-child(1) { width: 400px; height: 400px; top: -80px; right: -80px; animation-delay: 0s; }
+    .hero-ring:nth-child(2) { width: 650px; height: 650px; top: -200px; right: -200px; animation-delay: 1.5s; }
+    .hero-ring:nth-child(3) { width: 900px; height: 900px; top: -350px; right: -350px; animation-delay: 3s; }
+    @keyframes expand { 0%,100%{opacity:.6} 50%{opacity:.15} }
+
+    .hero-inner {
+      max-width: 1120px; margin: auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #93c5fd; font-size: .8rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 50px; margin-bottom: 24px;
+    }
+    .hero-badge span { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    #hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800; color: #fff; margin-bottom: 20px;
+    }
+    #hero h1 em { font-style: normal; color: #60a5fa; }
+    .hero-sub {
+      font-size: 1.1rem; color: #94a3b8; margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-trust {
+      margin-top: 28px;
+      display: flex; align-items: center; gap: 10px;
+      color: #64748b; font-size: .82rem;
+    }
+    .trust-dots { display: flex; gap: -4px; }
+    .trust-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid #1e3a8a;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      margin-left: -8px;
+    }
+    .trust-dot:first-child { margin-left: 0; }
+
+    /* Hero Visual */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .phone-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.05);
+      text-align: center;
+      position: relative;
+      min-width: 260px;
+    }
+    .speaker-icon-wrap {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 40px rgba(37,99,235,.5);
+      animation: glow 3s ease-in-out infinite;
+    }
+    @keyframes glow { 0%,100%{box-shadow:0 0 40px rgba(37,99,235,.5)} 50%{box-shadow:0 0 60px rgba(37,99,235,.8)} }
+    .speaker-icon-wrap svg { width: 48px; height: 48px; }
+
+    .wave-bars {
+      display: flex; align-items: center; justify-content: center; gap: 5px; margin: 16px 0;
+    }
+    .wave-bar {
+      width: 4px; background: linear-gradient(to top, #2563eb, #60a5fa);
+      border-radius: 4px;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(1){height:14px;animation-delay:0s}
+    .wave-bar:nth-child(2){height:28px;animation-delay:.15s}
+    .wave-bar:nth-child(3){height:42px;animation-delay:.3s}
+    .wave-bar:nth-child(4){height:28px;animation-delay:.45s}
+    .wave-bar:nth-child(5){height:14px;animation-delay:.6s}
+    .wave-bar:nth-child(6){height:28px;animation-delay:.75s}
+    .wave-bar:nth-child(7){height:42px;animation-delay:.9s}
+    .wave-bar:nth-child(8){height:28px;animation-delay:1.05s}
+    .wave-bar:nth-child(9){height:14px;animation-delay:1.2s}
+    @keyframes wave { 0%,100%{transform:scaleY(.4);opacity:.5} 50%{transform:scaleY(1);opacity:1} }
+
+    .phone-card-label { color: #94a3b8; font-size: .8rem; margin-top: 4px; }
+    .phone-card-status {
+      margin-top: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: var(--green-light); color: var(--green);
+      font-size: .8rem; font-weight: 600; padding: 7px 14px; border-radius: 50px;
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--gray-100); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);
+      padding: 32px 24px;
+    }
+    .stats-inner {
+      max-width: 1120px; margin: auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; text-align: center;
+    }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue-start); }
+    .stat-label { font-size: .85rem; color: var(--gray-500); margin-top: 2px; }
+
+    /* ─── PROBLEM ─── */
+    #problem { background: var(--white); }
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px;
+    }
+    .problem-cards { display: flex; flex-direction: column; gap: 16px; }
+    .problem-card {
+      background: var(--gray-100); border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+      border: 1px solid var(--gray-200);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .problem-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+    .problem-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .problem-card p { font-size: .9rem; color: var(--gray-500); }
+    .problem-visual {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border-radius: 24px; padding: 40px;
+      text-align: center; border: 1px solid #bfdbfe;
+    }
+    .problem-visual-icon { font-size: 5rem; margin-bottom: 16px; display: block; }
+    .problem-visual p { color: var(--gray-700); font-size: .95rem; }
+
+    /* ─── HOW IT WORKS ─── */
+    #how-it-works { background: var(--gray-100); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px;
+    }
+    .step-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 32px 28px; box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200); position: relative;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .step-number {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue-start), var(--blue-end));
+      color: #fff; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .step-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { font-size: .9rem; color: var(--gray-500); }
+
+    /* ─── FEATURES ─── */
+    #features { background: var(--white); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;
+    }
+    .feature-card {
+      background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+      padding: 28px; transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { border-color: #93c5fd; transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .feature-icon { font-size: 2rem; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: .88rem; color: var(--gray-500); }
+
+    /* ─── HOW TO USE ─── */
+    #how-to-use { background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 100%); }
+    #how-to-use .section-label { background: rgba(255,255,255,.1); color: #93c5fd; }
+    #how-to-use .section-title { color: #fff; }
+    #how-to-use .section-sub { color: #94a3b8; }
+    .steps-use {
+      display: flex; flex-direction: column; gap: 0; margin-top: 48px; max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .step-use {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .step-use:last-child { border-bottom: none; }
+    .step-use-num {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(37,99,235,.8);
+      background: rgba(37,99,235,.2);
+      color: #60a5fa; font-family: 'Syne', sans-serif; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-use h3 { color: #e2e8f0; font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .step-use p { color: #94a3b8; font-size: .9rem; }
+    .tip-box {
+      background: rgba(37,99,235,.15); border: 1px solid rgba(37,99,235,.4);
+      border-radius: var(--radius); padding: 18px 22px;
+      margin-top: 32px; display: flex; gap: 12px; align-items: flex-start; max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .tip-box p { color: #93c5fd; font-size: .9rem; }
+
+    /* ─── COMPARISON ─── */
+    #comparison { background: var(--gray-100); }
+    .table-wrap { margin-top: 48px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--white); font-size: .92rem;
+      border-radius: var(--radius); overflow: hidden;
+    }
+    th {
+      background: linear-gradient(135deg, var(--blue-start), var(--blue-end));
+      color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;
+      padding: 16px 20px; text-align: left; font-size: .85rem; letter-spacing: .03em;
+    }
+    td { padding: 16px 20px; border-bottom: 1px solid var(--gray-200); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--gray-100); }
+    .highlight-row td { background: #eff6ff !important; font-weight: 600; }
+    .badge-green {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--green-light); color: var(--green);
+      font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 50px;
+    }
+    .badge-red {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fee2e2; color: #dc2626;
+      font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 50px;
+    }
+    .badge-yellow {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fef9c3; color: #ca8a04;
+      font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 50px;
+    }
+
+    /* ─── FAQ ─── */
+    #faq { background: var(--white); }
+    .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; max-width: 780px; }
+    .faq-item {
+      border: 1px solid var(--gray-200); border-radius: var(--radius);
+      overflow: hidden; transition: border-color .2s;
+    }
+    .faq-item.open { border-color: #93c5fd; }
+    .faq-q {
+      padding: 20px 24px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--white); transition: background .15s;
+    }
+    .faq-item.open .faq-q { background: var(--blue-light); }
+    .faq-chevron {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: var(--gray-200); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .25s, background .2s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); background: #bfdbfe; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s;
+      background: var(--white);
+    }
+    .faq-a-inner { padding: 0 24px 20px; color: var(--gray-500); font-size: .92rem; }
+    .faq-item.open .faq-a { max-height: 260px; }
+
+    /* ─── FINAL CTA ─── */
+    #cta {
+      background: linear-gradient(135deg, var(--blue-start) 0%, var(--blue-end) 100%);
+      text-align: center; padding: 96px 24px;
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.12) 0%, transparent 60%);
+    }
+    #cta h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; position: relative; }
+    #cta p { color: #bfdbfe; font-size: 1.05rem; margin-bottom: 36px; position: relative; }
+    .cta-btn-white {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: var(--blue-start);
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.05rem; padding: 18px 40px; border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+      transition: transform .22s, box-shadow .22s;
+      position: relative;
+    }
+    .cta-btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,.25); }
+    .cta-note { color: #93c5fd; font-size: .82rem; margin-top: 16px; position: relative; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--gray-900); color: #64748b;
+      text-align: center; padding: 32px 24px;
+      font-size: .85rem;
+    }
+    footer a { color: #60a5fa; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .section { padding: 64px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="http://fixmyspeakercleaner.com/" class="nav-logo" rel="noopener">
+      <img src="https://fixmyspeakercleaner.com/wp-content/uploads/2026/01/cropped-fix-my-speaker-logo.png" alt="Fix My Speaker Logo" />
+    </a>
+    <a href="http://fixmyspeakercleaner.com/" class="nav-cta" rel="noopener">Clean My Speaker →</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero" aria-label="Hero section">
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span></span> Free online tool · No download required
+      </div>
+      <h1>Fix My Speaker — <em>Remove Water</em> &amp; Dust in Seconds</h1>
+      <p class="hero-sub">A free browser-based speaker cleaner that uses sound frequencies to eject water and dislodge debris from your phone speaker. Works on iPhone &amp; Android instantly.</p>
+      <div class="hero-actions">
+        <a href="http://fixmyspeakercleaner.com/" class="btn-primary" rel="noopener">
+          🔊 Clean My Speaker Now
+        </a>
+        <a href="#how-to-use" class="btn-ghost">See How It Works</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-dots">
+          <div class="trust-dot"></div>
+          <div class="trust-dot"></div>
+          <div class="trust-dot"></div>
+          <div class="trust-dot"></div>
+        </div>
+        <span>Trusted by thousands of users worldwide</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone-card">
+        <div class="speaker-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 16H18L26 8V40L18 32H10C8.9 32 8 31.1 8 30V18C8 16.9 8.9 16 10 16Z" fill="white" fill-opacity=".9"/>
+            <path d="M32 16C35.3 18.5 37.5 22 37.5 26C37.5 30 35.3 33.5 32 36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M36 12C41.3 15.5 45 20.4 45 26C45 31.6 41.3 36.5 36 40" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-opacity=".5"/>
+          </svg>
+        </div>
+        <div class="wave-bars" aria-label="Sound wave animation">
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <p style="color:#60a5fa;font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;">Sound Frequency Active</p>
+        <p class="phone-card-label">165 Hz — Water Ejection Mode</p>
+        <div class="phone-card-status">
+          <span>✓</span> Speaker Restored
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-bar" aria-label="Key statistics">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">500K+</div>
+      <div class="stat-label">Speakers Cleaned</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Free to Use</div>
+    </div>
+    <div>
+      <div class="stat-num">0</div>
+      <div class="stat-label">Apps to Install</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section id="problem" class="section" aria-labelledby="problem-heading">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title" id="problem-heading">Water &amp; Dust Are Ruining Your Speaker</h2>
+        <p class="section-sub">You don't need a swimming pool accident for your speaker to suffer. Everyday exposure silently degrades your phone's sound quality.</p>
+
+        <div class="problem-cards" style="margin-top:32px;">
+          <div class="problem-card">
+            <span class="problem-icon">💧</span>
+            <div>
+              <h3>Water Intrusion</h3>
+              <p>Even water-resistant phones trap moisture in speaker mesh, causing muffled, distorted audio after rain, sweat, or splashes.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">🌫️</span>
+            <div>
+              <h3>Dust &amp; Lint Buildup</h3>
+              <p>Pockets and bags push fine particles deep into speaker grilles over time — invisible damage with very audible results.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">🔇</span>
+            <div>
+              <h3>Partial Blockage</h3>
+              <p>Even a 20% blockage causes noticeable distortion. You don't need a fully blocked speaker for sound quality to suffer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="problem-visual">
+        <span class="problem-visual-icon" aria-hidden="true">📱</span>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;">Don't Use These — They Make It Worse</h3>
+        <p>Toothpicks can puncture the membrane. Blowing pushes debris deeper. Cotton swabs leave fibers behind. Sound-based cleaning is the <strong>only safe option</strong> that doesn't require tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section id="how-it-works" class="section" aria-labelledby="science-heading">
+  <div class="container">
+    <span class="section-label">The Science</span>
+    <h2 class="section-title" id="science-heading">How Sound-Based Speaker Cleaning Works</h2>
+    <p class="section-sub">The same principle Apple built into the Apple Watch — now free for everyone, in your browser.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Frequency Generation</h3>
+        <p>The tool generates calibrated low-frequency sound waves between 165 Hz and 200 Hz using your browser's Web Audio API — no app needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Controlled Vibration</h3>
+        <p>These frequencies cause your speaker membrane to vibrate at a precise intensity — strong enough to displace water, gentle enough to cause zero damage.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Water &amp; Debris Ejection</h3>
+        <p>The oscillation pushes trapped moisture outward through the grille and dislodges compacted dust that suction or blowing can never reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+<section id="features" class="section" aria-labelledby="features-heading">
+  <div class="container">
+    <span class="section-label">Features &amp; Benefits</span>
+    <h2 class="section-title" id="features-heading">Everything You Need, Nothing You Don't</h2>
+    <p class="section-sub">Built for real users who just want their phone to sound good again — right now.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Water Ejection</h3>
+        <p>Calibrated frequencies start working immediately. No waiting, no warm-up — results in under 60 seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧹</div>
+        <h3>Dust &amp; Debris Removal</h3>
+        <p>Effective against lint, sand, pocket dust, and fine particles — the everyday enemies of clear sound.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Works on Any Device</h3>
+        <p>iPhone, Android, tablets, and laptops. If it has a speaker and a browser, Fix My Speaker can help.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Zero Installation</h3>
+        <p>100% browser-based. No app store, no permissions, no storage used. Open and go.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎛️</div>
+        <h3>Multiple Frequency Modes</h3>
+        <p>Different sound profiles for different problems — water ejection mode, dust cleaning mode, and general maintenance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Private &amp; Secure</h3>
+        <p>No data collected, no account needed. Everything runs locally in your browser. Your device, your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW TO USE ═══════════ -->
+<section id="how-to-use" class="section" aria-labelledby="howto-heading">
+  <div class="container">
+    <span class="section-label">Step-by-Step Guide</span>
+    <h2 class="section-title" id="howto-heading" style="color:#fff;">How to Use Fix My Speaker</h2>
+    <p class="section-sub" style="margin-bottom:0;">Ready in under 60 seconds. Follow these steps for best results.</p>
+
+    <div class="steps-use">
+      <div class="step-use">
+        <div class="step-use-num">1</div>
+        <div>
+          <h3>Open the Tool</h3>
+          <p>Visit <a href="http://fixmyspeakercleaner.com/" style="color:#60a5fa;" rel="noopener">fixmyspeakercleaner.com</a> directly on the phone with the speaker problem. No need for a second device.</p>
+        </div>
+      </div>
+      <div class="step-use">
+        <div class="step-use-num">2</div>
+        <div>
+          <h3>Set Volume to Maximum</h3>
+          <p>Turn your device volume all the way up. Higher volume creates stronger vibration — this step is critical for the best results.</p>
+        </div>
+      </div>
+      <div class="step-use">
+        <div class="step-use-num">3</div>
+        <div>
+          <h3>Select Your Cleaning Mode</h3>
+          <p>Choose "Water Ejection" if your phone got wet, or "Dust Cleaning" for general muffled audio. Different frequencies, different fixes.</p>
+        </div>
+      </div>
+      <div class="step-use">
+        <div class="step-use-num">4</div>
+        <div>
+          <h3>Hold Speaker Facing Down</h3>
+          <p>Point your speaker toward the floor. Gravity works with the vibration to let dislodged water drip out naturally.</p>
+        </div>
+      </div>
+      <div class="step-use">
+        <div class="step-use-num">5</div>
+        <div>
+          <h3>Run the Cycle &amp; Repeat</h3>
+          <p>Let the sound play for 30–60 seconds. For heavy water exposure, run 2–3 cycles. Wipe the grille gently with a dry cloth between cycles.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <span style="font-size:1.3rem;flex-shrink:0;">⚠️</span>
+      <p><strong style="color:#e2e8f0;">Pro Tip:</strong> Do not use headphones or earbuds during the process. The vibration is designed for your external speaker only. Remove any phone case for better results.</p>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="http://fixmyspeakercleaner.com/" class="btn-primary" rel="noopener">🔊 Start Cleaning Now — It's Free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPARISON ═══════════ -->
+<section id="comparison" class="section" aria-labelledby="comparison-heading">
+  <div class="container">
+    <span class="section-label">Why This Tool?</span>
+    <h2 class="section-title" id="comparison-heading">Fix My Speaker vs. Other Methods</h2>
+    <p class="section-sub">Not all speaker cleaning methods are equal. Here's how they stack up.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Effectiveness</th>
+            <th>Risk to Device</th>
+            <th>Cost</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Toothpick / Pin</td>
+            <td><span class="badge-red">Low</span></td>
+            <td><span class="badge-red">High — puncture risk</span></td>
+            <td>Free</td>
+            <td>5 min</td>
+          </tr>
+          <tr>
+            <td>Compressed Air</td>
+            <td><span class="badge-yellow">Medium</span></td>
+            <td><span class="badge-yellow">Medium — pushes debris in</span></td>
+            <td>$5–$15</td>
+            <td>5 min</td>
+          </tr>
+          <tr>
+            <td>Cotton Swab</td>
+            <td><span class="badge-red">Low</span></td>
+            <td><span class="badge-yellow">Medium — leaves fibers</span></td>
+            <td>Free</td>
+            <td>10 min</td>
+          </tr>
+          <tr>
+            <td>Professional Service</td>
+            <td><span class="badge-green">High</span></td>
+            <td><span class="badge-green">Low</span></td>
+            <td>$30–$100+</td>
+            <td>1–3 days</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>🔊 Fix My Speaker (Sound)</strong></td>
+            <td><span class="badge-green">High</span></td>
+            <td><span class="badge-green">None</span></td>
+            <td><span class="badge-green">Free</span></td>
+            <td>&lt; 1 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" class="section" aria-labelledby="faq-heading">
+  <div class="container">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
+    <p class="section-sub">Everything you need to know about the Fix My Speaker tool and how it works.</p>
+
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          Is this tool safe for my phone?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, completely. The sound frequencies used are within the normal operational range for smartphone speakers. The tool does not exceed the volume or frequency thresholds your speaker was engineered to handle. It is the safest way to clean a speaker without tools.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          Does the Fix My Speaker tool work on iPhones?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Fix My Speaker works on all iPhone models, including those with IP67/IP68 water resistance ratings. Even resistant phones benefit from clearing residual moisture that makes its way into the speaker grille.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          How long should I run the cleaning cycle?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">For light water exposure (splash, brief rain), one 30–60 second cycle is typically enough. For heavier exposure — like dropping your phone in water — run 2–3 cycles with a short break and a gentle wipe of the grille between each cycle.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          My speaker still sounds muffled after using the tool. What now?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">First, make sure your volume is at maximum and run 2–3 more cycles. If the issue persists, internal water damage may have reached components beyond the speaker grille, and professional service may be the right next step. The tool is highly effective for grille-level blockage but cannot repair internal hardware damage.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          Does this phone speaker cleaning tool work for the earpiece too?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! Switch your phone's audio output to the earpiece (top speaker) in your settings, then run the same cleaning process. This is effective for muffled call audio, which is a common complaint after water exposure.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          Does it work for Bluetooth speakers?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">The tool is primarily optimized for built-in phone and tablet speakers. For external Bluetooth speakers, results may vary depending on the speaker housing design and grille configuration. It's worth trying, but results are not guaranteed.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+          Is Fix My Speaker really free?
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">100% free. No registration, no subscription, no in-app purchases, and no hidden fees. The tool runs entirely in your browser with no data collected. Open it, use it, close it — that's all.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section id="cta" aria-label="Call to action">
+  <h2>Your Speaker Can Sound Like New</h2>
+  <p>Free. Instant. No download. Works on iPhone &amp; Android.<br>Join thousands of users who fixed their speaker in under a minute.</p>
+  <a href="http://fixmyspeakercleaner.com/" class="cta-btn-white" rel="noopener">
+    🔊 Fix My Speaker Now — It's Free
+  </a>
+  <p class="cta-note">No sign-up · No app · No cost · Works in your browser</p>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <p>© 2024 <a href="http://fixmyspeakercleaner.com/" rel="noopener">fixmyspeakercleaner.com</a> · Free Online Speaker Cleaner &amp; Water Ejection Tool · Works on iPhone &amp; Android</p>
+</footer>
+
+<!-- ═══════════ FAQ ACCORDION JS ═══════════ -->
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
+  });
+</script>
+
+</body>
+</html>
